@@ -1,20 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import yo from "../assets/yo.webp";
-import Image from "astro/components/Image.astro";
 import Gadget from "../components/Gadget.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Eric Martinez Portfolio">
   <header>
-    <img alt="Eric Martinez Foto" src="src/assets/yo.webp" class="w-12" />
-    <h1 class="text-white text-4xl">Hola, Soy Eric!</h1>
+    <div class="flex items-center">
+      <img alt="Eric Martinez Foto" src="src/assets/yo.webp" class="w-16" />
+      <Gadget />
+    </div>
+    <h1 class="text-white text-4xl font-bold">Hola, soy Eric!</h1>
     <p>
       +15 años de experiencia. Ingeniero de Software y Creador de Contenido
       sobre Programación de Barcelona, España 🇪🇸. Especializado en el desarrollo
       de aplicaciones web únicas.
     </p>
-    <Gadget />
   </header>
 </Layout>
