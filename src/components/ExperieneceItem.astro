@@ -9,7 +9,6 @@ interface Props {
 
 import Link from "./Link.astro";
 
-const link = "/";
 const { title, company, startDate, endDate, description } = Astro.props;
 ---
 
@@ -24,14 +23,14 @@ const { title, company, startDate, endDate, description } = Astro.props;
 
       <h3 class="text-xl font-bold text-yellow-400">{title}</h3>
       <h3 class="text-xl font-semibold text-white">{company}</h3>
-      <time class="text-sm p-0 m-0 text-white/60">{endDate}</time>
+      <time class="text-sm p-0 m-0 text-white/60">{startDate} - {endDate}</time>
     </div>
   </div>
   <div
     class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3"
   >
     {description}
-    <Link href={link}>
+    <!-- <Link href={link}>
       Saber más{" "}
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +49,6 @@ const { title, company, startDate, endDate, description } = Astro.props;
           <path d="M9 6l6 6l-6 6"></path>
         </>
       </svg>
-    </Link>
+    </Link> -->
   </div>
 </div>

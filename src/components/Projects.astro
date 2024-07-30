@@ -2,6 +2,15 @@
 import ProjectItem from "./ProjectItem.astro";
 import NextJS from "../icons/nextjs.astro";
 import Tailwind from "../icons/tailwind.astro";
+import Bootstrap from "../icons/bootstrap.astro";
+import Django from "../icons/django.astro";
+import PostgreSQL from "../icons/postgres.astro";
+import Railway from "../icons/railway.astro";
+import JS from "../icons/js.astro";
+import MySQL from "../icons/mysql.astro";
+import ReactNative from "../icons/react-native.astro";
+import AstroIcon from "../icons/astroIcon.astro";
+
 const TAGS = {
   NEXT: {
     name: "Next.js",
@@ -13,29 +22,86 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  DJANGO: {
+    name: "Django",
+    class: "bg-[#092E20] text-white",
+    icon: Django,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#336791] text-white",
+    icon: PostgreSQL,
+  },
+  RAILWAY: {
+    name: "Railway",
+    class: "bg-[#F54748] text-white",
+    icon: Railway,
+  },
+  JS: {
+    name: "JavaScript",
+    class: "bg-[#F0DB4F] text-[#333333]",
+    icon: JS,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-[#E0E0E0] text-[#7E13F8]",
+    icon: Bootstrap,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#4479A1] text-white",
+    icon: MySQL,
+  },
+  DRF: {
+    name: "Django Rest Framework",
+    class: "bg-[#092E20] text-white",
+    icon: Django,
+  },
+  REACTNATIVE: {
+    name: "React Native",
+    class: "bg-[#002B36] text-black",
+    icon: ReactNative,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#0D1117] text-white",
+    icon: AstroIcon,
+  },
 };
 
 const projectsData = [
   {
-    title: "Project 1",
-    description: "This is a description of project 1",
-    image: "https://porfolio.dev/projects/svgl.webp",
-    link: "https://www.google.com",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    title: "BD PyC",
+    description:
+      "Administrador de códigos de regalo, servicios digitales y clientes. Creado desde cero con Django, Bootstrap, PostgreSQL y JS. Alojado en Railway. Gestiona más de 2 millones de códigos de regalo, permitió la expansión de la empresa y mejoro su eficiencia en más de un 50%. Al ser de un cliente, no puedo mostrar código fuente ni dar claves de acceso.",
+    image: "/src/assets/bdpyc.webp",
+    link: "https://www.bdpyc.cl",
+    tags: [TAGS.DJANGO, TAGS.POSTGRESQL, TAGS.RAILWAY, TAGS.JS, TAGS.BOOTSTRAP],
   },
   {
-    title: "Project 2",
-    description: "This is a description of project 2",
-    image: "https://porfolio.dev/projects/svgl.webp",
-    link: "https://www.google.com",
-    tags: [TAGS.NEXT],
+    title: "Cuentas México",
+    description:
+      "Administrador de servicios digitales y clientes. Creado desde cero con Django, Bootstrap, MySQL y JS. Alojado en Railway. Gestiona más de 30000 servicios digitales, redujo en mas de un 90% los errores de registro y mejoro su eficiencia en más de un 50%. Actualment me encuentro migrandolo a NextJs, DRF y Tailwind. Al ser de un cliente, no puedo mostrar código fuente ni dar claves de acceso.",
+    image: "/src/assets/cuentasmex.webp",
+    link: "https://www.cuentasmexico.mx/adm",
+    tags: [
+      TAGS.DJANGO,
+      TAGS.RAILWAY,
+      TAGS.JS,
+      TAGS.BOOTSTRAP,
+      TAGS.MYSQL,
+      TAGS.NEXT,
+      TAGS.TAILWIND,
+      TAGS.DRF,
+    ],
   },
   {
-    title: "Project 3",
-    description: "This is a description of project 3",
-    image: "https://porfolio.dev/projects/svgl.webp",
-    link: "https://www.google.com",
-    tags: [TAGS.TAILWIND],
+    title: "Reventas",
+    description:
+      "Aplicación multiplataforma para la compra de productos digitales, integrada con el backend de DRF de Cuentas México y Stripe. Disminuye el tiempo que tarda un cliente en realizar una compra un 60%. Creada desde cero con React Native, Django Rest Framework, Stripe y MySQL. Al ser de un cliente, no puedo mostrar código fuente ni dar claves de acceso.",
+    image: "/src/assets/reventas.webp",
+    link: "https://reventas.cuentasmexico.mx",
+    tags: [TAGS.DRF, TAGS.JS, TAGS.MYSQL, TAGS.REACTNATIVE],
   },
 ];
 ---
