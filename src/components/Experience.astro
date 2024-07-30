@@ -1,0 +1,33 @@
+---
+import ExperieneceItem from "./ExperieneceItem.astro";
+
+const EXPERIENCIES = [
+  {
+    title: "Desarrollador Web",
+    company: "Midudev",
+    startDate: "2020",
+    endDate: "2021",
+    description:
+      "Desarrollo de aplicaciones web con React y Node.jsDesarrollo de aplicaciones web con React y Node.jsDesarrollo de aplicaciones web con React y Node.jsDesarrollo de aplicaciones web con React y Node.jsDesarrollo de aplicaciones web con React y Node.jsDesarrollo de aplicaciones web con React y Node.jsDesarrollo de aplicaciones web con React y Node.js",
+  },
+  {
+    title: "Desarrollador Android",
+    company: "Midudev",
+    startDate: "2021",
+    endDate: "2022",
+    description: "Desarrollo de aplicaciones móviles con Kotlin y Java",
+  },
+];
+---
+
+<ol class="relative mt-16 lg:max-w-4xl md:max-w-2xl">
+  {
+    EXPERIENCIES.map((item) => {
+      return (
+        <li>
+          <ExperieneceItem {...item} />
+        </li>
+      );
+    })
+  }
+</ol>

@@ -1,0 +1,45 @@
+---
+import ProjectItem from "./ProjectItem.astro";
+import NextJS from "../icons/nextjs.astro";
+import Tailwind from "../icons/tailwind.astro";
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+};
+
+const projectsData = [
+  {
+    title: "Project 1",
+    description: "This is a description of project 1",
+    image: "https://porfolio.dev/projects/svgl.webp",
+    link: "https://www.google.com",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Project 2",
+    description: "This is a description of project 2",
+    image: "https://porfolio.dev/projects/svgl.webp",
+    link: "https://www.google.com",
+    tags: [TAGS.NEXT],
+  },
+  {
+    title: "Project 3",
+    description: "This is a description of project 3",
+    image: "https://porfolio.dev/projects/svgl.webp",
+    link: "https://www.google.com",
+    tags: [TAGS.TAILWIND],
+  },
+];
+---
+
+<div>
+  {projectsData.map((project) => <ProjectItem {...project} />)}
+</div>

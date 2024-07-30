@@ -1,19 +1,57 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Gadget from "../components/Gadget.astro";
+import Hero from "../components/Hero.astro";
+import Experience from "../components/Experience.astro";
+import Portfolio from "../icons/portfolio.astro";
+import CodeIcon from "../icons/code.astro";
+import Projects from "../components/Projects.astro";
+import Person from "../icons/person.astro";
+import About from "../components/About.astro";
 ---
 
-<Layout title="Eric Martinez Portfolio">
-  <header>
-    <div class="flex items-center">
-      <img alt="Eric Martinez Foto" src="src/assets/yo.webp" class="w-16" />
-      <Gadget />
-    </div>
-    <h1 class="text-white text-4xl font-bold">Hola, soy Eric!</h1>
-    <p>
-      +15 años de experiencia. Ingeniero de Software y Creador de Contenido
-      sobre Programación de Barcelona, España 🇪🇸. Especializado en el desarrollo
-      de aplicaciones web únicas.
-    </p>
-  </header>
+<Layout
+  title="Portafolio de Eric Martinez - Programador Multiplataforma con 2 años de experiencia"
+  description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web, Android e Ios."
+>
+  <main>
+    <Hero />
+
+    <section
+      class="section py-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+    >
+      <div class="flex flex-row">
+        <Portfolio class="size-8 text-white mr-4" />
+        <h2 id="experience" class="text-3xl scroll-m-20 text-white font-bold">
+          Experiencia
+        </h2>
+      </div>
+      <Experience />
+    </section>
+    <section
+      class="section py-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+    >
+      <div class="flex flex-row">
+        <CodeIcon class="size-8 text-white mr-4" />
+        <h2 id="projects" class="text-3xl scroll-m-20 text-white font-bold">
+          Proyectos
+        </h2>
+      </div>
+      <Projects />
+    </section>
+
+    <section
+      class="section py-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+    >
+      <div class="flex flex-row">
+        <Person class="size-8 text-white mr-4" />
+        <h2
+          id="sobre-mi"
+          class="text-3xl scroll-m-20 text-white font-bold pb-8 md:pb-2"
+        >
+          Sobre Mi
+        </h2>
+      </div>
+      <About />
+    </section>
+  </main>
 </Layout>

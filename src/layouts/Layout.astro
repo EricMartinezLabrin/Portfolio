@@ -1,13 +1,16 @@
 ---
 interface Props {
   title: string;
+  description: string;
 }
 
 const { title } = Astro.props;
+import Footer from "../components/Footer.astro";
+import Navigator from "../components/navigator.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Desarrollador MultiPlataforma" />
@@ -17,20 +20,22 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="bg-slate-400 text-red-600 p-10 dark:bg-slate-900 dark:text-blue-400"
+    class="relative text-black dark:text-white px-4 top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
   >
+    <Navigator />
     <slot />
+    <Footer />
   </body>
 </html>
 
 <style>
-  html,
-  body {
-    height: 100%;
-    min-height: 100vh; /* Asegura que el body tome al menos el 100% de la altura de la ventana gráfica */
-    width: 100%;
-    margin: 0; /* Elimina los márgenes por defecto */
-    padding: 0; /* Elimina el padding por defecto */
+  :root {
+    color-scheme: light dark;
+  }
+  html {
     font-family: "Onest Variable", sans-serif;
+    scroll-behavior: smooth;
   }
 </style>
