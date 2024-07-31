@@ -22,8 +22,10 @@ const { title, company, startDate, endDate, description } = Astro.props;
       >
 
       <h3 class="text-xl font-bold text-yellow-400">{title}</h3>
-      <h3 class="text-xl font-semibold text-white">{company}</h3>
-      <time class="text-sm p-0 m-0 text-white/60">{startDate} - {endDate}</time>
+      <h3 class="text-xl font-semibold text-dark dark:text-white">{company}</h3>
+      <time class="text-sm p-0 m-0 text-dark/60 dark:text-white/60"
+        >{startDate} - {endDate}</time
+      >
     </div>
   </div>
   <div
