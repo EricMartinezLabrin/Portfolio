@@ -10,6 +10,18 @@ import JS from "../icons/js.astro";
 import MySQL from "../icons/mysql.astro";
 import ReactNative from "../icons/react-native.astro";
 import AstroIcon from "../icons/astroIcon.astro";
+import AWSIcon from "../icons/aws.astro";
+import RailsIcon from "../icons/rails.astro";
+import MetamapIcon from "../icons/metamap.astro";
+import StripeIcon from "../icons/stripe.astro";
+import PostmanIcon from "../icons/postman.astro";
+import ReactIcon from "../icons/react.astro";
+import NestJSIcon from "../icons/nest.astro";
+import DigitalOceanIcon from "../icons/digital-ocean.astro";
+import CloudflareIcon from "../icons/cloudflare.astro";
+import WXTIcon from "../icons/wxt.astro";
+import OllamaIcon from "../icons/ollama.astro";
+import DeepgramIcon from "../icons/deepgram.astro";
 
 const TAGS = {
   NEXT: {
@@ -67,9 +79,114 @@ const TAGS = {
     class: "bg-[#0D1117] text-white",
     icon: AstroIcon,
   },
+  RUBY: {
+    name: "Ruby on Rails",
+    class: "bg-[#CC342D] text-white",
+    icon: RailsIcon,
+  },
+  AWS: {
+    name: "Amazon Web Services",
+    class: "bg-[#232F3E] text-white",
+    icon: AWSIcon,
+  },
+  METAMAP: {
+    name: "MetaMap",
+    class: "bg-[#F54748] text-white",
+    icon: MetamapIcon,
+  },
+  STRIPE: {
+    name: "Stripe",
+    class: "bg-white text-[#6772E5]",
+    icon: StripeIcon,
+  },
+  POSTMAN: {
+    name: "Postman",
+    class: "bg-[#FF6C37] text-white",
+    icon: PostmanIcon,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#20232A] text-[#61DAFB]",
+    icon: ReactIcon,
+  },
+  NESTJS: {
+    name: "NestJS",
+    class: "bg-[#F7E1E1] text-[#E0234E]",
+    icon: NestJSIcon,
+  },
+  DIGITALOCEAN: {
+    name: "Digital Ocean",
+    class: "bg-[#E6F4FF] text-[#0069FF]",
+    icon: DigitalOceanIcon,
+  },
+  CLOUDFLARE: {
+    name: "Cloudflare",
+    class: "bg-[#FFE8D6] text-[#F38020]",
+    icon: CloudflareIcon,
+  },
+  WXT: {
+    name: "WXT",
+    class: "bg-[#004225] text-[#67d55e]",
+    icon: WXTIcon,
+  },
+  OLLAMA: {
+    name: "Ollama",
+    class: "bg-[#1F1F1F] text-[#FFF]",
+    icon: OllamaIcon,
+  },
+  DEEPGRAM: {
+    name: "Deepgram",
+    class: "bg-[#1F1F1F] text-[#FFF]",
+    icon: DeepgramIcon,
+  },
 };
 
 const projectsData = [
+  {
+    title: "Drivana Backend",
+    description:
+      "Backend de Drivana, una Web / Aplicación peer to peer de renta de carros. Creado desde cero con Ruby on Rails, PostgreSQL y AWS. Permite a los usuarios registrarse, subir sus carros, rentar carros, pagar con Stripe y calificar a otros usuarios. Al ser de un cliente, no puedo mostrar código fuente ni dar claves de acceso.",
+    image: "/assets/drivana-api.webp",
+    link: "https://drivana.mx",
+    tags: [
+      TAGS.AWS,
+      TAGS.RUBY,
+      TAGS.METAMAP,
+      TAGS.STRIPE,
+      TAGS.POSTMAN,
+      TAGS.POSTGRESQL,
+    ],
+  },
+  {
+    title: "Akrotonx",
+    description:
+      "Mantenimiento, correccion de errores y creación de nuevas funcionalidades para la web de Akrotonx. Creado con React, NestJs, PostgreSQL y Digital Ocean. Permite a los usuarios recorrer instalaciones como casas, departamentos, oficinas, etc. Usando un sistema de fotografías 360 y VR. Al ser de un cliente, no puedo mostrar código fuente ni dar claves de acceso.",
+    image: "/assets/akrotonx.webp",
+    link: "https://workshop.akrotonx.com",
+    tags: [
+      TAGS.REACT,
+      TAGS.NESTJS,
+      TAGS.DIGITALOCEAN,
+      TAGS.POSTGRESQL,
+      TAGS.POSTMAN,
+      TAGS.CLOUDFLARE,
+    ],
+  },
+  {
+    title: "Ai Meetings - By Fyware",
+    description:
+      "Creación desde cero de Extension de Chrome/Firefox para la empresa Fyware. Creado con WXT, React, NextJs, NestJs y Mysql. Permite a los usuarios grabar reuniones, transcribirlas, traducirlas y resumirlas, cuenta con integración a HubSpot realizando la creacion de contactos y guardando cada resumen en el. Utiliza IA de Ollama y Deepgram. Al ser de un cliente, no puedo mostrar código fuente ni dar claves de acceso.",
+    image: "/assets/ai-meetings.webp",
+    tags: [
+      TAGS.REACT,
+      TAGS.NESTJS,
+      TAGS.NEXT,
+      TAGS.MYSQL,
+      TAGS.WXT,
+      TAGS.OLLAMA,
+      TAGS.DEEPGRAM,
+    ],
+  },
   {
     title: "BD PyC",
     description:
