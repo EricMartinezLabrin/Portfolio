@@ -13,7 +13,7 @@ const { title, description, image, link, tags, git } = Astro.props;
     class="h-64 object-cover rounded-lg w-md md:mr-8 hover:scale-110 transition-transform duration-300"
   />
   <div class="w-full my-5 md:my-0 md:mx-16 md:w-1/2 md:max-w-lg lg:mx-16">
-    <h3 class="text-xl font-semibold text-white">{title}</h3>
+    <h3 class="text-xl font-semibold dark:text-white">{title}</h3>
     <ul class="flex flex-wrap gap-x-2">
       {
         tags.map((tag: any) => (

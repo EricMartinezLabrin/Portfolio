@@ -22,126 +22,140 @@ import CloudflareIcon from "../icons/cloudflare.astro";
 import WXTIcon from "../icons/wxt.astro";
 import OllamaIcon from "../icons/ollama.astro";
 import DeepgramIcon from "../icons/deepgram.astro";
+import Chatgpt from "../icons/chatgpt.astro";
 
 const TAGS = {
   NEXT: {
     name: "Next.js",
-    class: "bg-black text-white",
+    class: "bg-black text-white dark:bg-white dark:text-black",
     icon: NextJS,
   },
   TAILWIND: {
     name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
+    class: "bg-[#003159] text-white dark:bg-[#38BDF8] dark:text-black",
     icon: Tailwind,
   },
   DJANGO: {
     name: "Django",
-    class: "bg-[#092E20] text-white",
+    class: "bg-[#092E20] text-white dark:bg-[#44B78B] dark:text-black",
     icon: Django,
   },
   POSTGRESQL: {
     name: "PostgreSQL",
-    class: "bg-[#336791] text-white",
+    class: "bg-[#336791] text-white dark:bg-[#336791] dark:text-black",
     icon: PostgreSQL,
   },
   RAILWAY: {
     name: "Railway",
-    class: "bg-[#F54748] text-white",
+    class: "bg-[#F54748] text-white dark:bg-[#F54748] dark:text-black",
     icon: Railway,
   },
   JS: {
     name: "JavaScript",
-    class: "bg-[#F0DB4F] text-[#333333]",
+    class: "bg-[#F0DB4F] text-[#333333] dark:bg-[#F0DB4F] dark:text-black",
     icon: JS,
   },
   BOOTSTRAP: {
     name: "Bootstrap",
-    class: "bg-[#E0E0E0] text-[#7E13F8]",
+    class: "bg-[#E0E0E0] text-[#7E13F8] dark:bg-[#7E13F8] dark:text-white",
     icon: Bootstrap,
   },
   MYSQL: {
     name: "MySQL",
-    class: "bg-[#4479A1] text-white",
+    class: "bg-[#4479A1] text-white dark:bg-[#4479A1] dark:text-black",
     icon: MySQL,
   },
   DRF: {
     name: "Django Rest Framework",
-    class: "bg-[#092E20] text-white",
+    class: "bg-[#092E20] text-white dark:bg-[#44B78B] dark:text-black",
     icon: Django,
   },
   REACTNATIVE: {
     name: "React Native",
-    class: "bg-[#002B36] text-black",
+    class: "bg-[#002B36] text-black dark:bg-[#61DAFB] dark:text-black",
     icon: ReactNative,
   },
   ASTRO: {
     name: "Astro",
-    class: "bg-[#0D1117] text-white",
+    class: "bg-[#0D1117] text-white dark:bg-[#FF5A03] dark:text-black",
     icon: AstroIcon,
   },
   RUBY: {
     name: "Ruby on Rails",
-    class: "bg-[#CC342D] text-white",
+    class: "bg-[#CC342D] text-white dark:bg-[#CC342D] dark:text-black",
     icon: RailsIcon,
   },
   AWS: {
     name: "Amazon Web Services",
-    class: "bg-[#232F3E] text-white",
+    class: "bg-[#232F3E] text-white dark:bg-[#FF9900] dark:text-black",
     icon: AWSIcon,
   },
   METAMAP: {
     name: "MetaMap",
-    class: "bg-[#F54748] text-white",
+    class: "bg-[#F54748] text-white dark:bg-[#F54748] dark:text-black",
     icon: MetamapIcon,
   },
   STRIPE: {
     name: "Stripe",
-    class: "bg-white text-[#6772E5]",
+    class: "bg-[#0d0d0d] text-[#6772E5] dark:bg-[#6772E5] dark:text-black",
     icon: StripeIcon,
   },
   POSTMAN: {
     name: "Postman",
-    class: "bg-[#FF6C37] text-white",
+    class: "bg-[#FF6C37] text-white dark:bg-[#FF6C37] dark:text-black",
     icon: PostmanIcon,
   },
   REACT: {
     name: "React",
-    class: "bg-[#20232A] text-[#61DAFB]",
+    class: "bg-[#20232A] text-[#61DAFB] dark:bg-[#61DAFB] dark:text-black",
     icon: ReactIcon,
   },
   NESTJS: {
     name: "NestJS",
-    class: "bg-[#F7E1E1] text-[#E0234E]",
+    class: "bg-[#434343] text-[#E0234E] dark:bg-[#E0234E] dark:text-[#e4e4e4]",
     icon: NestJSIcon,
   },
   DIGITALOCEAN: {
     name: "Digital Ocean",
-    class: "bg-[#E6F4FF] text-[#0069FF]",
+    class: "bg-[#434343] text-[#0069FF] dark:bg-[#0069FF] dark:text-black",
     icon: DigitalOceanIcon,
   },
   CLOUDFLARE: {
     name: "Cloudflare",
-    class: "bg-[#FFE8D6] text-[#F38020]",
+    class: "bg-[#434343] text-[#F38020] dark:bg-[#F38020] dark:text-black",
     icon: CloudflareIcon,
   },
   WXT: {
     name: "WXT",
-    class: "bg-[#004225] text-[#67d55e]",
+    class: "bg-[#004225] text-[#67d55e] dark:bg-[#67d55e] dark:text-black",
     icon: WXTIcon,
   },
   OLLAMA: {
     name: "Ollama",
-    class: "bg-[#1F1F1F] text-[#FFF]",
+    class: "bg-[#1F1F1F] text-[#FFF] dark:bg-[#FFF] dark:text-black",
     icon: OllamaIcon,
   },
   DEEPGRAM: {
     name: "Deepgram",
-    class: "bg-[#1F1F1F] text-[#FFF]",
+    class: "bg-[#1F1F1F] text-[#FFF] dark:bg-[#FFF] dark:text-black",
     icon: DeepgramIcon,
+  },
+  OPENAI: {
+    name: "OpenAI",
+    class: "bg-[#10a37f] text-white dark:bg-[#10a37f] dark:text-black",
+    icon: Chatgpt,
   },
 };
 
 const projectsData = [
+  {
+    title: "Mejora CV",
+    description:
+      "Capa gratuita de web diseñada para realizar recomendaciones en tu Curriculum Vitae, esta utiliza IA para analizar el CV y dar recomendaciones personalizadas sobre mejoras a realizar para pasar los filtros de los reclutadores como los software ATS.",
+    image: "/assets/mejoracv-web.webp",
+    link: "https://mejoracv.fadetechs.com",
+    tags: [TAGS.AWS, TAGS.NESTJS, TAGS.NEXT, TAGS.OPENAI, TAGS.MYSQL],
+  },
   {
     title: "Drivana Backend",
     description:
