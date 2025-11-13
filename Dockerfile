@@ -30,15 +30,11 @@ FROM nginx:stable-alpine AS production
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
 
-# Copiar configuración personalizada de nginx para Traefik
+# Copiar configuración personalizada de nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Exponer puerto 80 por defecto
 EXPOSE 80
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost/health || exit 1
 
 # Ejecutar nginx en primer plano
 CMD ["nginx", "-g", "daemon off;"]
