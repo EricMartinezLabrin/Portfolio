@@ -5,10 +5,3 @@ build:
 
 # Puerto en el que la aplicación escucha internamente
 port: 80
-
-# Health check opcional
-healthcheck:
-  path: /health
-  interval: 30
-  timeout: 3
-  retries: 3

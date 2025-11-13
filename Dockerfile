@@ -26,8 +26,10 @@ RUN pnpm build
 # Etapa final: servir contenido estático con nginx
 FROM nginx:stable-alpine AS production
 
-# Eliminamos el default index.html por si acaso y copiamos la salida de Astro
-RUN rm -rf /usr/share/nginx/html/*
+# Eliminamos el default index.html y la configuración por defecto
+RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
+
+# Copiar la salida de Astro
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
 
 # Copiar configuración personalizada de nginx
