@@ -1,42 +1,32 @@
-# Dockerfile de producción multi-stage para un sitio Astro (static) usando pnpm
-# Etapa de build: instalar dependencias y construir
+# --- ETAPA 1: BUILD ---
 FROM node:20-alpine AS builder
-
 WORKDIR /app
 
-# Dependencias del sistema necesarias (si alguna dependencia nativa lo requiere)
-RUN apk add --no-cache libc6-compat
-
-# Usar corepack para activar pnpm (incluido en Node >=16.14+ / 18+). Ajustar versión si se desea.
+# Instalar pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Copiar archivos de lock y package para aprovechar cache de dependencias
+# Copiar dependencias
 COPY package.json pnpm-lock.yaml* ./
-
-# Instalar dependencias (incluye dev deps, necesarias para el build porque `astro check` puede necesitarlas)
 RUN pnpm install --frozen-lockfile
 
-# Copiar el resto del proyecto y ejecutar el build
+# Copiar código y construir
 COPY . .
-
-# Construcción de producción
-ENV NODE_ENV=production
+# Astro construye en /dist por defecto
 RUN pnpm build
 
-# Etapa final: servir contenido estático con nginx
+# --- ETAPA 2: SERVIDOR NGINX ---
 FROM nginx:stable-alpine AS production
 
-# Eliminamos el default index.html y la configuración por defecto
-RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
+# 1. Borramos la configuración por defecto para evitar conflictos
+RUN rm -rf /etc/nginx/conf.d/*
 
-# Copiar la salida de Astro
-COPY --from=builder /app/dist/ /usr/share/nginx/html/
-
-# Copiar configuración personalizada de nginx
+# 2. IMPORTANTE: Sobrescribimos la configuración MAESTRA porque tu archivo es completo
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Exponer puerto 80 por defecto
+# 3. Copiamos los archivos estáticos generados por Astro
+COPY --from=builder /app/dist/ /usr/share/nginx/html/
+
+# Exponer puerto 80 (Coincide con tu nginx.conf)
 EXPOSE 80
 
-# Ejecutar nginx en primer plano
 CMD ["nginx", "-g", "daemon off;"]
