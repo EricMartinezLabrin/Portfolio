@@ -1,0 +1,27 @@
+{
+  "dokploy": {
+    "domain": "your-domain.com",
+    "redirects": [],
+    "https": true,
+    "customHeaders": [],
+    "dockerfile": "Dockerfile",
+    "buildCommand": "pnpm build",
+    "startCommand": "pnpm preview --host 0.0.0.0 --port 4321",
+    "exposePort": 4321,
+    "environment": {
+      "NODE_ENV": "production"
+    },
+    "volumes": [],
+    "healthCheck": {
+      "enabled": true,
+      "path": "/",
+      "interval": 30,
+      "timeout": 10,
+      "retries": 3
+    },
+    "resources": {
+      "cpuLimit": "1",
+      "memoryLimit": "512Mi"
+    }
+  }
+}
