@@ -8,13 +8,11 @@ build
 .DS_Store
 .vscode
 .idea
-pnpm-lock.yaml
 .pnpm-store
 npm-debug.log
 yarn.lock
-pnpm-lock.yaml
 coverage
 .cache
-public/assets
 /.turbo
-/.gitignore
+README.md
+DEPLOYMENT.md

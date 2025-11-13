@@ -1,0 +1,4 @@
+# Configuración de Dokploy para usar Dockerfile personalizado
+build:
+  dockerfile: ./Dockerfile
+  context: .
