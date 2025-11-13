@@ -1,58 +1,17 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  traefik:
-    image: traefik:v2.10
-    container_name: traefik
-    command:
-      - '--api.insecure=true'
-      - '--providers.docker=true'
-      - '--providers.docker.exposedbydefault=false'
-      - '--entrypoints.web.address=:80'
-      - '--entrypoints.websecure.address=:443'
-      # Descomentar para Let's Encrypt en producción
-      # - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
-      # - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
-      # - "--certificatesresolvers.letsencrypt.acme.email=tu-email@ejemplo.com"
-      # - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
-    ports:
-      - '80:80'
-      - '443:443'
-      - '8080:8080' # Dashboard de Traefik
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      # Descomentar para persistir certificados SSL
-      # - ./letsencrypt:/letsencrypt
-    networks:
-      - web
-    restart: unless-stopped
-
   portfolio:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: portfolio
-    labels:
-      - 'traefik.enable=true'
-      # Configuración HTTP (puerto 80)
-      - 'traefik.http.routers.portfolio.rule=Host(`localhost`)'
-      - 'traefik.http.routers.portfolio.entrypoints=web'
-      - 'traefik.http.services.portfolio.loadbalancer.server.port=80'
-
-      # Descomentar y ajustar para HTTPS en producción
-      # - "traefik.http.routers.portfolio.rule=Host(`tu-dominio.com`)"
-      # - "traefik.http.routers.portfolio-secure.rule=Host(`tu-dominio.com`)"
-      # - "traefik.http.routers.portfolio-secure.entrypoints=websecure"
-      # - "traefik.http.routers.portfolio-secure.tls=true"
-      # - "traefik.http.routers.portfolio-secure.tls.certresolver=letsencrypt"
-
-      # Redirección HTTP a HTTPS (descomentar en producción)
-      # - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      # - "traefik.http.routers.portfolio.middlewares=redirect-to-https"
-    networks:
-      - web
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=production
     restart: unless-stopped
-
-networks:
-  web:
-    driver: bridge
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:4321/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

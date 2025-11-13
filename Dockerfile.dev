@@ -1,0 +1,22 @@
+# Dockerfile para desarrollo
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Instalar pnpm
+RUN npm install -g pnpm
+
+# Copiar archivos de dependencias
+COPY package.json pnpm-lock.yaml ./
+
+# Instalar todas las dependencias (incluidas dev)
+RUN pnpm install --frozen-lockfile
+
+# Copiar el código fuente
+COPY . .
+
+# Exponer puerto
+EXPOSE 4321
+
+# Comando para desarrollo con hot reload
+CMD ["pnpm", "dev", "--host", "0.0.0.0"]

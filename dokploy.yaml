@@ -1,7 +1,0 @@
-# Configuración de Dokploy para usar Dockerfile personalizado
-build:
-  dockerfile: ./Dockerfile
-  context: .
-
-# Puerto en el que la aplicación escucha internamente
-port: 80

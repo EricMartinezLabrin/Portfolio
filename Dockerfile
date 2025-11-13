@@ -1,32 +1,38 @@
-# --- ETAPA 1: BUILD ---
+# Etapa 1: Build
 FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copiar archivos de dependencias
+COPY package.json pnpm-lock.yaml ./
+
+# Instalar pnpm y dependencias
+RUN npm install -g pnpm && \
+    pnpm install --frozen-lockfile
+
+# Copiar el resto del código
+COPY . .
+
+# Build del proyecto
+RUN pnpm build
+
+# Etapa 2: Runtime (producción)
+FROM node:20-alpine
+
 WORKDIR /app
 
 # Instalar pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN npm install -g pnpm
 
-# Copiar dependencias
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install --frozen-lockfile
+# Copiar solo los archivos necesarios desde el builder
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --prod --frozen-lockfile
 
-# Copiar código y construir
-COPY . .
-# Astro construye en /dist por defecto
-RUN pnpm build
+# Copiar la carpeta dist desde el builder
+COPY --from=builder /app/dist ./dist
 
-# --- ETAPA 2: SERVIDOR NGINX ---
-FROM nginx:stable-alpine AS production
+# Exponer puerto
+EXPOSE 4321
 
-# 1. Borramos la configuración por defecto para evitar conflictos
-RUN rm -rf /etc/nginx/conf.d/*
-
-# 2. IMPORTANTE: Sobrescribimos la configuración MAESTRA porque tu archivo es completo
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# 3. Copiamos los archivos estáticos generados por Astro
-COPY --from=builder /app/dist/ /usr/share/nginx/html/
-
-# Exponer puerto 80 (Coincide con tu nginx.conf)
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Comando para servir
+CMD ["pnpm", "preview", "--host", "0.0.0.0", "--port", "4321"]
