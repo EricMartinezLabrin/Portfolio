@@ -17,7 +17,7 @@ COPY . .
 RUN pnpm build
 
 # Etapa 2: Runtime (producción)
-FROM node:20-alpine
+FROM node:20-alpine AS production
 
 WORKDIR /app
 
